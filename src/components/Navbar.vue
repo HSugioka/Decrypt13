@@ -19,6 +19,10 @@
           My Page
         </router-link>
 
+        <router-link class="navbar-item" to="/projectlist">
+          Proect List
+        </router-link>
+
         <div class="navbar-item has-dropdown is-hoverable">
           <!-- プルダウン形式で表示できる。下のMoreは表示されている名前 -->
           <a class="navbar-link">More</a>
