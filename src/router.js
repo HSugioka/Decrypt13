@@ -16,15 +16,34 @@ export default new Router({
     {
       path: '/mypage',
       name: 'mypage',
-      // route level code-splitting
-      // this generates a separate chunk (about.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
       component: () => import('./views/MyPage.vue')
     },
     {
       path: '/projectlist',
       name: 'projectlist',
-      component: () => import('./views/ProjectList.vue')
-    }
+      component: () => import('./views/Project/ProjectList.vue')
+    },
+    {
+      path: '/proposal',
+      name: 'proposal',
+      component: () => import('./views/Project/Proposal.vue')
+    },    
+    {
+      path: '/entry',
+      name: 'entry',
+      component: () => import('./views/Entry/Entry.vue')
+    },
+    {
+      path: '/entry-all',
+      name: 'entry-all',
+      component: () => import('./views/Entry/Entry-all.vue')
+    },
+    {
+      path: '/projectlist/detail/:id',
+      name: 'detail',
+      component: () => import('./views/Project/Detail.vue')
+    },
+
+
   ]
 })

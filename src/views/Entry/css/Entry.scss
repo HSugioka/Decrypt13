@@ -1,0 +1,16 @@
+.container {
+  padding-top: 50px;
+  padding-bottom: 50px;
+  background-color: #fff;
+  .form {
+    margin: 0 auto;
+    max-width: 500px;
+    min-width: 310px;
+    box-shadow: none;
+    padding: 1%;
+  
+    .money {
+    text-align: right;
+    }
+  }
+}

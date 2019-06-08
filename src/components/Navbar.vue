@@ -10,36 +10,26 @@
 
     <div id="navbarBasicExample" class="navbar-menu" :class="{ 'is-active': showNav }">
       <div class="is-centerd">
-      <div class="navbar">
-        <router-link class="navbar-item" to="/">
-          HOME
-        </router-link>
+        <div class="navbar">
+          <router-link class="navbar-item" to="/">
+            HOME
+          </router-link>
 
-        <router-link class="navbar-item" to="/mypage">
-          My Page
-        </router-link>
+          <router-link class="navbar-item" to="/mypage">
+            My Page
+          </router-link>
 
-        <router-link class="navbar-item" to="/projectlist">
-          Proect List
-        </router-link>
+          <router-link class="navbar-item" to="/projectlist">
+            Proect List
+          </router-link>
 
-        <div class="navbar-item has-dropdown is-hoverable">
-          <!-- プルダウン形式で表示できる。下のMoreは表示されている名前 -->
-          <a class="navbar-link">More</a>
-          
-          <!-- ここにプルダウンの中身を書いていく、本来であればtoでどこかに遷移できるようにする -->
-          <div class="navbar-dropdown is-arrowless">
-            <a class="navbar-item">
-              huga
-            </a>
-            <a class="navbar-item">
-              hoge
-            </a>
-          </div>
+          <router-link class="navbar-item" to="/proposal">
+            Proposal
+          </router-link>
+
+        
         </div>
       </div>
-      </div>
-
       <div class="navbar-end">
         <div class="navbar-item">
           <div class="buttons">

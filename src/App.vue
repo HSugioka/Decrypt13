@@ -29,4 +29,11 @@ export default {
   text-align: center;
   color: #2c3e50;
 }
+
+header {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 10;
+}
 </style>

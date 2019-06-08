@@ -27,6 +27,9 @@
                 </div>
                     <a class="btn" href="#" data-user="">Fund</a>
               </div>
+              <b-button type="is-light" outlined>
+                <router-link :to="{ name: 'detail', params: { id: child.name }}">show detail</router-link>
+              </b-button>
             </div>
       </div>
     </div>
@@ -70,7 +73,7 @@
     </div>
 </div>
 -->
-  </div>
+    </div>
 </template>
 
 <script>
@@ -117,28 +120,6 @@ export default {
 }
 </script>
 
-<style scoped>
-.projectlist {
-    color: green;
-    font-size: .875rem;
-    line-height: 1.5;
-    border-radius: .2rem;
-}
-.btn {
-    color: green;
-    font-size: .875rem;
-    line-height: 1.5;
-    border-radius: .2rem;
-}
-.btn {
-/*  display: inline-block;*/
-  text-align: center;
-  vertical-align: middle;
-  user-select: none;
-  border: solid transparent;
-  color: #fff;
-  background-color: #17a2b8;
-  border-color: #17a2b8;
-}
+<style lang="scss" src="./css/ProjectList.scss" scoped>
 
 </style>
