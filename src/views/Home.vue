@@ -4,7 +4,7 @@
       <div class="hero-body">
         <div class="container">
           <h1 class="title">
-            Project for student
+            Dream Project for kids
           </h1>
           <h2 class="subtitle">
             we wish your dream comes true
