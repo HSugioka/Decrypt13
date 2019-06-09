@@ -41,7 +41,7 @@ export default {
     sendData() {
       window.registerProject(
         this.title,
-        Math.floor(new Date().getTime() / 1000) + 60,
+        Math.floor(new Date().getTime() / 1000) + 3600,
         this.sum,
         this.content
       );
