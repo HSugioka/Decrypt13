@@ -117,6 +117,19 @@ export default {
       ]
    }
   },
+  created() {
+    window.initBlockchain(
+      (ev) => {
+        this.children.push({
+          name: ev.args.title,
+          age: ev.args.fundingTarget,
+          sex: ev.args.fundingDeadline,
+          content: ev.args.desc
+        });
+      },
+      () => {}
+    );
+  }
 }
 </script>
 
