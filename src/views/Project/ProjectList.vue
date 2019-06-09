@@ -17,7 +17,8 @@
                   </div>
                   <div class="media-content">
                     <p class="title is-4">{{child.name}}</p>
-                    <p class="title is-6">Amount  : ${{child.age}}</p>
+                    <p class="title is-6">Target Amount  : ${{child.age}}</p>
+                    <p class="title is-6">Funded Amount  : ${{child.totalFund}}</p>
                     <p class="title is-6">Due date: {{child.sex}}</p>
                   </div>
                 </div>
@@ -25,7 +26,8 @@
                 <div class="content">
                   {{child.content}}
                 </div>
-                    <a class="btn" href="#" data-user="">Fund</a>
+		<input type="number" v-model="child.amount" />
+                    <a class="btn" href="#" data-user="" @click="doFund(child.id, child.amount)">Fund</a>
               </div>
               <b-button type="is-light" outlined>
                 <router-link :to="{ name: 'detail', params: { id: child.name }}">show detail</router-link>
@@ -86,6 +88,7 @@ export default {
   },
   data() {
     return {
+      lastBlockNumber: 0,
       children: [
         {
           name: 'Fund1',
@@ -118,17 +121,52 @@ export default {
    }
   },
   created() {
+    const self = this;
     window.initBlockchain(
       (ev) => {
+        if (ev.blockNumber <= self.lastBlockNumber) {
+          return;
+        }
+        self.lastBlockNumber = ev.blockNumber;
+
+        const d = new Date(ev.args.fundingDeadline.toNumber() * 1000);
         this.children.push({
+          id: ev.args.projId.toNumber(),
           name: ev.args.title,
-          age: ev.args.fundingTarget,
-          sex: ev.args.fundingDeadline,
-          content: ev.args.desc
+          age: ev.args.fundingTarget.toNumber(),
+          sex: `${d.getFullYear()}-${d.getMonth() + 1}-${d.getDate()}`,
+          content: ev.args.desc,
+          totalFund: 0,
         });
       },
-      () => {}
+
+      () => {}, //handleProjectAborted
+
+      //handleFunded
+      (ev) => {
+        if (ev.blockNumber <= self.lastBlockNumber) {
+          return;
+        }
+        self.lastBlockNumber = ev.blockNumber;
+
+        const projId = ev.args.projId.toNumber();
+        const amount = window.web3.fromWei(ev.args.amount, 'ether').toNumber();
+        console.log(ev.args);
+        console.log('projId is ' + projId);
+        console.log('amount is ' + amount);
+        for (let proj of this.children) {
+          if (proj.id === projId) {
+            proj.totalFund = proj.totalFund + amount;
+          }
+        }
+      },
     );
+  },
+
+  methods: {
+    doFund: (projId, amount) => {
+      window.fundProject(projId, amount);
+    },
   }
 }
 </script>
