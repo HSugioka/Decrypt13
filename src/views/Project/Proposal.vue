@@ -21,7 +21,7 @@
           </b-field>
         </section>
 
-        <a class="button is-primary is-focused" @click="alert">登録</a>
+        <a class="button is-primary is-focused" @click="sendData">登録</a>
       </div>
     </template>
   </div>
@@ -39,7 +39,12 @@ export default {
   },
   methods: {
     sendData() {
-
+      window.registerProject(
+        this.title,
+        Math.floor(new Date().getTime() / 1000) + 60,
+        this.sum,
+        this.content
+      );
     },
   },
 }
