@@ -26,7 +26,7 @@
                 <div class="content">
                   {{child.content}}
                 </div>
-		<input type="number" v-model="child.amount" />
+                <input class="f-amount" type="number" v-model="child.amount" />
                     <a class="btn" href="#" data-user="" @click="doFund(child.id, child.amount)">Fund</a>
               </div>
               <b-button type="is-light" outlined>

@@ -21,3 +21,20 @@ color: #fff;
 background-color: #17a2b8;
 border-color: #17a2b8;
 }
+
+.card {
+  max-width: auto;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+
+  .content {
+    max-width: auto;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}
+.f-amount {
+  margin: 15px;
+}

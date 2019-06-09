@@ -46,7 +46,6 @@ export default {
         this.sum,
         this.content
       );
-      firebase.database().ref().set()
     },
   },
 }
