@@ -7,7 +7,7 @@
               <b-input v-model="title"/>
           </b-field>
 
-          <b-field label="Priod">
+          <b-field label="Period">
             <b-input v-model="validDate"
               type="date"/>
           </b-field>
