@@ -48,12 +48,16 @@
       </div>
     </div>
   <b-button type="is-primary" outlined @click="$router.push({ path: '/entry-all' })">ENTRY LIST</b-button>
+
+  {{projectData}}
   </div>
 </template>
 
 <script>
 export default {
-  
+  props: {
+    projectData: []
+  }
 }
 </script>
 

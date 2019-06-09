@@ -1,7 +1,7 @@
 <template>
   <div class="projectlist">
     <div class="columns is-multiline">
-      <div class="column is-3" v-for="(child, index) in children" :key="index">
+      <div class="column is-3" v-for="(child, index) in children" :key="index" :projectData="children">
             <div class="card">
               <div class="card-image">
                 <figure class="image is-4by3">
@@ -116,6 +116,14 @@ export default {
         }
       ]
    }
+  },
+  created() {
+    this.fetchData()
+  },
+  methods: {
+    fetchData() {
+
+    }
   },
 }
 </script>
